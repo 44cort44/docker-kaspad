@@ -46,5 +46,7 @@ VOLUME /app/data
 
 COPY --from=builder /go/bin/kaspad /go/bin/kaspactl /app/
 
-CMD kaspad --utxoindex --archival
+ENV EXTERNAL_IP **String**
+
+CMD kaspad --utxoindex --archival --externalip=$EXTERNAL_IP
 
