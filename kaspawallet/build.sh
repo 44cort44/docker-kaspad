@@ -15,13 +15,13 @@ if [ -z "$VERSION" -o -z "$KASPAD_VERSION" ]; then
   exit 1
 fi
 
-docker build --pull --build-arg KASPAD_VERSION=${KASPAD_VERSION} --build-arg REPO_URL=${REPO_URL} -t supertypo/kaspawallet:${VERSION} $(dirname $0)
-docker tag supertypo/kaspawallet:${VERSION} supertypo/kaspawallet:latest
+docker build --pull --build-arg KASPAD_VERSION=${KASPAD_VERSION} --build-arg REPO_URL=${REPO_URL} -t 44cort44/kaspawallet:${VERSION} $(dirname $0)
+docker tag 44cort44/kaspawallet:${VERSION} 44cort44/kaspawallet:latest
 
 if [ "$PUSH" = "push" ]; then
-  docker push supertypo/kaspawallet:${VERSION}
+  docker push 44cort44/kaspawallet:${VERSION}
   if [ "$REPO_URL" = "$REPO_URL_STABLE" ]; then
-    docker push supertypo/kaspawallet:latest    
+    docker push 44cort44/kaspawallet:latest    
   fi
 fi
 
